@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  aether-forge:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: aether-forge
+    volumes:
+      - ../../logs:/app/logs
+    environment:
+      - CREATOR_ID=CREATOR-AF-MA-25031945-PRIME
+    restart: unless-stopped
+    networks:
+      - aether-network
+
+networks:
+  aether-network:
+    driver: bridge 

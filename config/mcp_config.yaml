@@ -1,0 +1,33 @@
+mcp:
+  # MCP (Multi-Chain Protocol) Configuration
+  enabled: true
+  
+  # Chain settings
+  chain:
+    max_depth: 5
+    timeout_seconds: 30
+    retry_attempts: 3
+  
+  # Protocol settings
+  protocol:
+    version: "1.0"
+    secure_mode: true
+    encryption: "AES-256"
+  
+  # Authentication settings
+  auth:
+    required: true
+    token_expiry_minutes: 60
+    refresh_enabled: true
+  
+  # Performance settings
+  performance:
+    max_concurrent_chains: 10
+    memory_limit_mb: 512
+    cpu_limit_percent: 75
+  
+  # Logging settings
+  logging:
+    level: "INFO"
+    file_rotation_days: 7
+    max_file_size_mb: 100 

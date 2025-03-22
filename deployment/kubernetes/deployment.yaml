@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aether-forge
+  labels:
+    app: aether-forge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aether-forge
+  template:
+    metadata:
+      labels:
+        app: aether-forge
+    spec:
+      containers:
+      - name: aether-forge
+        image: mualitech1/aether-forge:latest
+        imagePullPolicy: Always
+        env:
+        - name: CREATOR_ID
+          value: "CREATOR-AF-MA-25031945-PRIME"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: logs-volume
+          mountPath: /app/logs
+      volumes:
+      - name: logs-volume
+        emptyDir: {} 
